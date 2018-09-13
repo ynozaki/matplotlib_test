@@ -6,6 +6,7 @@ from matplotlib.ticker import FuncFormatter
 
 n_groups=2
 conditions=['with GPU','witout GPU']
+target=['pytorch_example_rnn','pytorch_example_dnn']
 y1=np.array([207, 1147])
 y2=np.array([65, 245])
 index=np.arange(n_groups)
@@ -14,12 +15,12 @@ bar_width=0.35
 
 fig, ax=plt.subplots()
 
-rects1=ax.bar(index,y1,bar_width,color='b',label=conditions[0])
-rects2=ax.bar(index+bar_width,y2,bar_width,color='r',label=conditions[1])
+rects1=ax.bar(index,y1,bar_width,color='b',label=target[0])
+rects2=ax.bar(index+bar_width,y2,bar_width,color='r',label=target[1])
 
 ax.set_xlabel('condition')
 ax.set_ylabel('calculation time[s]')
-ax.set_title('Performance comparison　w/o GPU')
+ax.set_title('Performance comparison　wo GPU')
 ax.set_xticks(x + bar_width/2)
 ax.set_xticklabels((conditions))
 ax.set_xlim(0-2*bar_width,2+bar_width)
